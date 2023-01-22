@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  list-style: none;
+  box-sizing: border-box;
+  border: 0;
+}
+
+.bg-color-blue {
+  background-color: #3c86ad;
+}
+
+.bg-color-light-blue {
+  background-color: #1975A580;
+}
+
+.font-color-gray{
+  color: #56585a;
+}
+
+.icon-4em {
+  font-size: 4em;
+}
+
+.icon-2em{
+  font-size: 2em;
+}
+
+.icon-1_5em{
+  font-size: 1.5em;
+}
+
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.flex-gap-20px{
+  gap:20px;
+}
+
+.flex-gap-7px{
+  gap: 7px;
+}
+
