@@ -1,0 +1,20 @@
+.width-left-bar {
+  width: 260px;
+}
+
+.icon-1_5em{
+  font-size: 1.5em;
+}
+
+p {
+  color: white;
+}
+
+button{
+  border: 1px solid white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+  /* gap: 5px; */
