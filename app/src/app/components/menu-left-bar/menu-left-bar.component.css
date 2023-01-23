@@ -10,11 +10,20 @@ p {
   color: white;
 }
 
-button{
+a{
   border: 1px solid white;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   width: 90%;
 }
-  /* gap: 5px; */
+
+li a:active {
+  color: green;
+  border: 1px solid green;
+}
+
+ul{
+  padding: 0;
+  list-style-position: none;
+}

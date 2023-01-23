@@ -1,0 +1,182 @@
+<div class="container_custom">
+    <h2 class="font-color-gray">Preencha os campos para cadastrar</h2>
+
+    <form class="d-flex flex-column shadow px-5 py-3 mb-3 bg-body-tertiary rounded" [formGroup]="registration_edit_form"
+        (ngSubmit)="onSubmit()">
+
+        <div class="d-flex flex-row justify-content-between">
+            <h5 class="fs-3 fw-bold text-black">Identificação</h5>
+            <div class="d-flex flex-row align-items-center flex-gap-15px">
+                <div class="form-check form-switch">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Editar</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+                <button class="button_deletar">Deletar</button>
+                <button class="button_salvar" type="submit">Salvar</button>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-between pt-3 flex-gap-15px">
+            <div class="w-60 mb-3">
+                <label for="nome" class="form-label">Nome Completo</label>
+                <input type="text" class="form-control" id="nome" formControlName="nome">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">Gênero</label>
+                <select class="form-select" id="genero" name="genero" formControlName="genero">
+                    <option value="" selected disabled hidden>Selecione uma categoria</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <!-- <option *ngFor="let item of categorias" value="{{item}}">{{item}}</option> -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="data" class="form-label">data</label>
+                <input type="text" class="form-control" id="data" placeholder="Ex: 01/01/2001" formControlName="data">
+            </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-between pt-3 flex-gap-15px">
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="cpf" formControlName="cpf">
+            </div>
+            <div class="mb-3">
+                <label for="rg" class="form-label">RG</label>
+                <input type="text" class="form-control" id="rg" formControlName="rg">
+            </div>
+            <div class="mb-3">
+                <label for="estado_civil" class="form-label">Estado Civil</label>
+                <select class="form-select" id="estado_civil" name="estado_civil" formControlName="estado_civil">
+                    <option value="" selected disabled hidden>Selecione o Estado Civil</option>
+                    <option value="casado">Casado(a)</option>
+                    <option value="solteiro">Solteiro(a)</option>
+                    <option value="separado">Separado(a)</option>
+                    <option value="vuivo">Vuivo(a)</option>
+                    <!-- <option *ngFor="let item of categorias" value="{{item}}">{{item}}</option> -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="telefone" formControlName="telefone">
+            </div>
+            <div class="w-25 mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+        </div>
+
+        <h6 class="fs-5 fw-bold font-color-gray">Contatos de Emergencia:</h6>
+        <div class="d-flex flex-column pt-3 flex-gap-15px" formArrayName="array_contatos_emergencia">
+            <div class="d-flex flex-row justify-content-start align-items-end flex-gap-15px"
+                *ngFor="let contatos_emergencia_controls of array_contatos_emergencia_controls; let i = index"
+                [formGroupName]="i" style="margin-top: 10px;">
+                <div class="w-25">
+                    <label for="nome_contato_emergencia" class="form-label">Nome do Contato de Emergencia</label>
+                    <input type="text" title="" class="form-control" formControlName="nome_contato_emergencia">
+                </div>
+                <div class="w-25">
+                    <label for="numero_telefone_contato_emergencia" class="form-label">Telefone do Contato de
+                        Emergencia</label>
+                    <input type="text" title="" class="form-control"
+                        formControlName="numero_telefone_contato_emergencia">
+                </div>
+                <button type="button" class="btn btn-danger" (click)="onDeleteContatos_Emergencia(i)">X</button>
+            </div>
+            <button class="btn btn-success" style="width: 300px; height: 50px;" type="button"
+                (click)="onAddContatos_Emergencia()">Adicionar Contato de Emergencia</button>
+        </div>
+
+
+        <h5 class="fs-3 fw-bold text-black pt-5">Convênio</h5>
+        <div class="d-flex flex-row align-items-center justify-content-between pt-3 flex-gap-15px">
+            <div class="mb-3">
+                <label for="convenio" class="form-label">Convênio</label>
+                <select class="form-select" id="convenio" name="convenio" formControlName="convenio">
+                    <option value="" selected disabled hidden>Selecione uma categoria</option>
+                    <option value="masculino">Unimed</option>
+                    <option value="masculino">Plamev</option>
+                    <option value="feminino">Sem Plano</option>
+                    <!-- <option *ngFor="let item of categorias" value="{{item}}">{{item}}</option> -->
+                </select>
+            </div>
+            <div class="w-60 mb-3">
+                <label for="numero_carteira_covenio" class="form-label">Número da Carteira</label>
+                <input type="text" class="form-control" id="numero_carteira_covenio"
+                    formControlName="numero_carteira_covenio">
+            </div>
+
+            <div class="mb-3">
+                <label for="validade_carteira_covenio" class="form-label">Validade da Carteira</label>
+                <input type="text" class="form-control" id="validade_carteira_covenio" placeholder="Ex: 01/01/2001"
+                    formControlName="validade_carteira_covenio">
+            </div>
+        </div>
+
+        <h6 class="fs-5 fw-bold font-color-gray">Alergias:</h6>
+        <div class="d-flex flex-column pt-3 flex-gap-15px" formArrayName="array_alergias">
+            <div class="d-flex flex-row justify-content-start align-items-end flex-gap-15px"
+                *ngFor="let alergias_controls of array_alergias_controls; let j = index" [formGroupName]="j"
+                style="margin-top: 10px;">
+
+                <div class="w-25">
+                    <label for="tipo_alergia" class="form-label">Tipo da Alergia</label>
+                    <input type="text" title="" class="form-control" formControlName="tipo_alergia">
+                </div>
+                <button type="button" class="btn btn-danger" (click)="onDeleteAlergias(j)">X</button>
+            </div>
+            <button class="btn btn-success" style="width: 300px; height: 50px;" type="button"
+                (click)="onAddAlergias()">Adicionar Alergia</button>
+        </div>
+
+        <h5 class="fs-3 fw-bold text-black pt-5">Dados de Endereço</h5>
+        <div class="d-flex flex-row align-items-center justify-content-between pt-3 flex-gap-15px">
+            <div class="w-25 mb-3">
+                <label for="cep" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="cep" formControlName="cep" placeholder="Ex: 21938475"
+                    (keyup)="callViaApiAfterCompleteCep()">
+                    <div
+                    *ngIf="registration_edit_form.controls['cep'].invalid && (registration_edit_form.controls['cep'].dirty || registration_edit_form.controls['cep'].touched)">
+                    <p class="text-danger"
+                      *ngIf="(registration_edit_form.get('cep')?.hasError('maxlength') || registration_edit_form.get('cep')?.hasError('minlength'))">
+                      Tamanho do CEP deve ser de 8 numeros</p>
+                    <p class="text-danger" *ngIf="registration_edit_form.controls['cep'].errors?.['required']">
+                      Cep é obrigatorio
+                    </p>
+                </div>
+            </div>
+            <div class="w-75 mb-3">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="cidade" formControlName="cidade">
+            </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="estado" formControlName="estado">
+            </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-between pt-3 flex-gap-15px">
+            <div class="w-100 mb-3">
+                <label for="logradouro" class="form-label">Logradouro</label>
+                <input type="text" class="form-control" id="logradouro" formControlName="logradouro">
+            </div>
+            <div class="mb-3">
+                <label for="numero" class="form-label">Numero</label>
+                <input type="text" class="form-control" id="numero" formControlName="numero">
+            </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-between pt-3 flex-gap-15px">
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="complemento" formControlName="complemento">
+            </div>
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="bairro" formControlName="bairro">
+            </div>
+        </div>
+
+
+    </form>
+</div>
