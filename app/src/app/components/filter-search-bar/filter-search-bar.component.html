@@ -1,0 +1,7 @@
+<div class="d-flex flex-row justify-content-between form-label-group">
+    <input v-model="text" placeholder="Search.." #input_search>
+    <label>
+        <i class="bi bi-search"></i> Digite o nome do paciente
+    </label>
+    <button class="bg-white font-color-gray" (click)="sendSearchTermToParentComponent(input_search.value)">Buscar</button>
+</div>

@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListMedicalRecordComponent } from './pages/list-medical-record/list-medical-record.component';
+import { FilterSearchBarComponent } from './components/filter-search-bar/filter-search-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuLeftBarComponent,
     HomeComponent,
     NavBarComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ListMedicalRecordComponent,
+    FilterSearchBarComponent
   ],
   imports: [
     BrowserModule,
