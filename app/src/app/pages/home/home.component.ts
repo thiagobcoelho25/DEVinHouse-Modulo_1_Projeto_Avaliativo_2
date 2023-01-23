@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+
+  termFilter(term: string){
+    console.log(term)
+  }
 }

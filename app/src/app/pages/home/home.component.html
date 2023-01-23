@@ -34,13 +34,7 @@
     </div>
 
     <h2 class="fw-bold font-color-gray">Informações Rápidas de Paciêntes</h2>
-    <div class="d-flex flex-row justify-content-between form-label-group">
-        <input v-model="text" placeholder="Search..">
-        <label>
-            <i class="bi bi-search"></i> Digite o nome do paciente
-        </label>
-        <button class="bg-white font-color-gray">Buscar</button>
-    </div>
+    <app-filter-search-bar (search_term)="termFilter($event)"></app-filter-search-bar>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
