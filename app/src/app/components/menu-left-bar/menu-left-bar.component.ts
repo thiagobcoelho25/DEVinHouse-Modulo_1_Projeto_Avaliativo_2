@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MenuLeftBarComponent {
 
+
+  show_nav_bar: boolean = true
+
+
+  changeNavBarvisibility(){
+    this.show_nav_bar = !this.show_nav_bar
+  }
 }
