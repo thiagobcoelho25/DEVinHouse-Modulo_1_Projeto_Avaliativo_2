@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="d-flex flex-row justify-content-center align-items-center flex-gap-20px">
                     <i class="bi bi-people-fill icon-4em"></i>
-                    <p class="fs-1 fw-bold">70</p>
+                    <p *ngIf="lista_pacientes; else ERRORBACKENDAPI" class="fs-1 fw-bold">{{lista_pacientes.length}}</p>
                 </div>
                 <p class="card-text fs-4 fw-semibold font-color-gray">Pacientes</p>
             </div>
@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="d-flex flex-row justify-content-center align-items-center flex-gap-20px">
                     <i class="bi bi-calendar-heart icon-4em"></i>
-                    <p class="fs-1 fw-bold">104</p>
+                    <p *ngIf="lista_consultas; else ERRORBACKENDAPI" class="fs-1 fw-bold">{{lista_consultas.length}}</p>
                 </div>
                 <p class="card-text fs-4 fw-semibold font-color-gray">Consultas</p>
             </div>
@@ -26,7 +26,7 @@
             <div class="card-body">
                 <div class="d-flex flex-row justify-content-center align-items-center flex-gap-20px">
                     <i class="bi bi-clipboard2-heart icon-4em"></i>
-                    <p class="fs-1 fw-bold">82</p>
+                    <p *ngIf="lista_exames; else ERRORBACKENDAPI" class="fs-1 fw-bold">{{lista_exames.length}}</p>
                 </div>
                 <p class="card-text fs-4 fw-semibold font-color-gray">Exames</p>
             </div>
@@ -36,91 +36,30 @@
     <h2 class="fw-bold font-color-gray">Informações Rápidas de Paciêntes</h2>
     <app-filter-search-bar (search_term)="termFilter($event)"></app-filter-search-bar>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+    <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="lista_pacientes; else ERRORBACKENDAPI">
+        <div class="col" *ngFor="let paciente of lista_pacietes_filtrada">
             <div class="card text-center h-100 w-100">
                 <div class="bg-color-light-blue" style="height: 70px;"></div>
                 <i class="bi bi-person-circle rounded-circle icon-4em" style="position: absolute; left: 43%; top: 15%; line-height: 0;
                 display:inline-block; background: white;"></i>
                 <div class="card-body mt-4 d-flex flex-column align-items-center flex-gap-7px">
-                    <h5 class="card-title">Cesar Abascal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">30 Anos</h6>
-                    <h6 class="card-subtitle font-color-gray fs-4 fw-bold">(55) 9 8224-4534</h6>
-                    <h5 class="card-title text-primary">Unimed</h5>
-                    <a class="text-decoration-none w-auto" style="cursor: pointer;"><p class="card-text font-color-gray">Ver mais</p></a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-center h-100 w-100">
-                <div class="bg-color-light-blue" style="height: 70px;"></div>
-                <i class="bi bi-person-circle rounded-circle icon-4em" style="position: absolute; left: 43%; top: 15%; line-height: 0;
-                display:inline-block; background: white;"></i>
-                <div class="card-body mt-4 d-flex flex-column flex-gap-7px">
-                    <h5 class="card-title">Cesar Abascal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">30 Anos</h6>
-                    <h6 class="card-subtitle  text-muted">(55) 9 8224-4534</h6>
-                    <h5 class="card-title text-primary">Unimed</h5>
-                    <a class="text-decoration-none w-auto" style="cursor: pointer;"><p class="card-text font-color-gray">Ver Mais</p></a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-center h-100 w-100">
-                <div class="bg-color-light-blue" style="height: 70px;"></div>
-                <i class="bi bi-person-circle rounded-circle icon-4em" style="position: absolute; left: 43%; top: 15%; line-height: 0;
-                display:inline-block; background: white;"></i>
-                <div class="card-body mt-4 d-flex flex-column flex-gap-7px">
-                    <h5 class="card-title">Cesar Abascal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">30 Anos</h6>
-                    <h6 class="card-subtitle  text-muted">(55) 9 8224-4534</h6>
-                    <h5 class="card-title text-primary">Unimed</h5>
-                    <a class="text-decoration-none w-auto" style="cursor: pointer;"><p class="card-text font-color-gray">Ver Mais</p></a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-center h-100 w-100">
-                <div class="bg-color-light-blue" style="height: 70px;"></div>
-                <i class="bi bi-person-circle rounded-circle icon-4em" style="position: absolute; left: 43%; top: 15%; line-height: 0;
-                display:inline-block; background: white;"></i>
-                <div class="card-body mt-4 d-flex flex-column flex-gap-7px">
-                    <h5 class="card-title">Cesar Abascal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">30 Anos</h6>
-                    <h6 class="card-subtitle  text-muted">(55) 9 8224-4534</h6>
-                    <h5 class="card-title text-primary">Unimed</h5>
-                    <a class="text-decoration-none w-auto" style="cursor: pointer;"><p class="card-text font-color-gray">Ver Mais</p></a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-center h-100 w-100">
-                <div class="bg-color-light-blue" style="height: 70px;"></div>
-                <i class="bi bi-person-circle rounded-circle icon-4em" style="position: absolute; left: 43%; top: 15%; line-height: 0;
-                display:inline-block; background: white;"></i>
-                <div class="card-body mt-4 d-flex flex-column flex-gap-7px">
-                    <h5 class="card-title">Cesar Abascal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">30 Anos</h6>
-                    <h6 class="card-subtitle  text-muted">(55) 9 8224-4534</h6>
-                    <h5 class="card-title text-primary">Unimed</h5>
-                    <a class="text-decoration-none w-auto" style="cursor: pointer;"><p class="card-text font-color-gray">Ver Mais</p></a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-center h-100 w-100">
-                <div class="bg-color-light-blue" style="height: 70px;"></div>
-                <i class="bi bi-person-circle rounded-circle icon-4em" style="position: absolute; left: 43%; top: 15%; line-height: 0;
-                display:inline-block; background: white;"></i>
-                <div class="card-body mt-4 d-flex flex-column text-center flex-gap-7px">
-                    <h5 class="card-title">Cesar Abascal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">30 Anos</h6>
-                    <h6 class="card-subtitle  text-muted">(55) 9 8224-4534</h6>
-                    <h5 class="card-title text-primary">Unimed</h5>
-                    <a class="text-decoration-none w-auto" style="cursor: pointer;"><p class="card-text font-color-gray">Ver Mais</p></a>
+                    <h5 class="card-title">{{paciente.nome}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{paciente.data | calcularAnosPorData}}</h6>
+                    <h6 class="card-subtitle font-color-gray fs-4 fw-bold">{{paciente.telefone}}</h6>
+                    <h5 class="card-title text-primary">{{paciente.convenio}}</h5>
+                    <a [routerLink]="['', 'registration', paciente.id]" class="text-decoration-none w-auto"
+                        style="cursor: pointer;">
+                        <p class="card-text font-color-gray">Ver mais</p>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <ng-template #ERRORBACKENDAPI>
+        <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+            <h3>Erro na requisição na API de backend</h3>
+          </div>
+    </ng-template>
 
 </div>

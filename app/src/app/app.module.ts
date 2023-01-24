@@ -11,6 +11,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListMedicalRecordComponent } from './pages/list-medical-record/list-medical-record.component';
 import { FilterSearchBarComponent } from './components/filter-search-bar/filter-search-bar.component';
+import { CalcularAnosPorDataPipe } from './shared/pipes/calcular-anos-por-data.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FilterSearchBarComponent } from './components/filter-search-bar/filter-
     NavBarComponent,
     RegistrationComponent,
     ListMedicalRecordComponent,
-    FilterSearchBarComponent
+    FilterSearchBarComponent,
+    CalcularAnosPorDataPipe
   ],
   imports: [
     BrowserModule,

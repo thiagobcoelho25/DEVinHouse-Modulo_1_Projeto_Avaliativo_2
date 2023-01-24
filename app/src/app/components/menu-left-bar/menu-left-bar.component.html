@@ -1,4 +1,5 @@
-<div class="vh-100 d-flex flex-column align-items-center justify-content-around accordion width-left-bar bg-color-blue" [ngStyle]="!show_nav_bar ? {'width': '50px'} : {}">
+<div class="vh-100 d-flex flex-column align-items-center justify-content-around accordion width-left-bar bg-color-blue"
+    [ngStyle]="!show_nav_bar ? {'width': '50px'} : {}">
 
     <div *ngIf="show_nav_bar">
         <div class="d-flex flex-column align-items-center flex-gap-20px">
@@ -6,7 +7,7 @@
             <img src="assets/images/Title.png" alt="logo_title_labmedical">
         </div>
 
-        <div class="w-100 d-flex flex-column align-items-start ps-4 flex-gap-20px">
+        <div class="w-100 d-flex flex-column align-items-start ps-4 pt-5 flex-gap-20px">
 
             <ul class="w-100 d-flex flex-column flex-gap-7px">
                 <p>Geral</p>
@@ -14,14 +15,14 @@
                     <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
                         routerLink="home" routerLinkActive="active">
                         <i class="bi bi-bar-chart icon-1_5em text-white"></i>
-                        <p>Inicio</p>
+                        <p class="text-end">Inicio</p>
                     </a>
                 </li>
                 <li>
                     <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
                         routerLink="logout" routerLinkActive="active">
                         <i class="bi bi-box-arrow-right icon-1_5em text-white"></i>
-                        <p>Sair</p>
+                        <p class="text-end">Sair</p>
                     </a>
                 </li>
             </ul>
@@ -32,30 +33,34 @@
                     <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
                         routerLink="registration" routerLinkActive="active">
                         <i class="bi bi-journal-plus icon-1_5em text-white"></i>
-                        <p>Cadastrar</p>
+                        <p class="text-end">Cadastrar</p>
                     </a>
                 </li>
                 <li>
                     <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
                         routerLink="list_medical_record" routerLinkActive="active">
                         <i class="bi bi-list-ul icon-1_5em text-white"></i>
-                        <p>Listar Protuario</p>
+                        <p class="text-end">Listar Protuario</p>
                     </a>
                 </li>
             </div>
 
             <div class="w-100 d-flex flex-column flex-gap-7px">
                 <p>Exames</p>
-                <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
-                    routerLink="registration_medical_appointment" routerLinkActive="active">
-                    <i class="bi bi-journal-plus icon-1_5em text-white"></i>
-                    <p>Cadastrar Consulta</p>
-                </a>
-                <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
-                    routerLink="registration_medical_exam" routerLinkActive="active">
-                    <i class="bi bi-list-ul icon-1_5em text-white"></i>
-                    <p>Cadastrar Exame</p>
-                </a>
+                <li>
+                    <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
+                        routerLink="registration_medical_appointment" routerLinkActive="active">
+                        <i class="bi bi-journal-plus icon-1_5em text-white"></i>
+                        <p class="text-end">Cadastrar Consulta</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link d-flex flex-row align-items-center justify-content-between px-2 bg-color-blue"
+                        routerLink="registration_medical_exam" routerLinkActive="active">
+                        <i class="bi bi-list-ul icon-1_5em text-white"></i>
+                        <p class="text-end">Cadastrar Exame</p>
+                    </a>
+                </li>
             </div>
 
         </div>
@@ -64,7 +69,8 @@
 
     <div class="d-flex flex-row align-items-center flex-gap-7px">
         <p *ngIf="show_nav_bar">Encolher Menu</p>
-        <button class="bg-transparent" (click)="changeNavBarvisibility()"><i class="bi bi-layout-split  icon-1_5em text-white"></i></button>
+        <button class="bg-transparent" (click)="changeNavBarvisibility()"><i
+                class="bi bi-layout-split  icon-1_5em text-white"></i></button>
     </div>
 
 </div>
