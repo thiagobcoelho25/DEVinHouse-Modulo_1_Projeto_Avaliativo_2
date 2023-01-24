@@ -1,0 +1,137 @@
+{
+  "exames": [
+    {
+      "id": 1,
+      "nome_do_exame": "nome exame 1",
+      "data_do_exame": "01/01/2023",
+      "hora_do_exame": "15:11:50",
+      "tipo_do_exame": "tipo do exame 1",
+      "laboratorio": "laboratorio 1",
+      "url_do_documento_do_exame": "url documento exame 1",
+      "resultado_do_exame": "resultado exame 1",
+      "pacienteId": 1
+    },
+    {
+      "id": 2,
+      "nome_do_exame": "nome exame 2",
+      "data_do_exame": "02/01/2023",
+      "hora_do_exame": "15:11:50",
+      "tipo_do_exame": "tipo do exame 2",
+      "laboratorio": "laboratorio 2",
+      "url_do_documento_do_exame": "url documento exame 2",
+      "resultado_do_exame": "resultado exame 2",
+      "pacienteId": 2
+    }
+  ],
+  "consultas": [
+    {
+      "id": 1,
+      "motivo": "motivo da consulta 1",
+      "data_da_consulta": "01/01/2023",
+      "hora_da_consulta": "13:11:50",
+      "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
+      "medicacao_receitada": "Lorem ipsum dolor",
+      "dosagem_e_precauções": "3 vezes ao dia",
+      "pacienteId": 1
+    },
+    {
+      "id": 2,
+      "motivo": "motivo da consulta 2",
+      "data_da_consulta": "02/01/2023",
+      "hora_da_consulta": "13:11:50",
+      "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
+      "medicacao_receitada": "Lorem ipsum dolor",
+      "dosagem_e_precauções": "3 vezes ao dia",
+      "pacienteId": 1
+    },
+    {
+      "id": 3,
+      "motivo": "motivo da consulta 3",
+      "data_da_consulta": "01/01/2023",
+      "hora_da_consulta": "01/01/2023",
+      "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
+      "medicacao_receitada": "Lorem ipsum dolor",
+      "dosagem_e_precauções": "3 vezes ao dia",
+      "pacienteId": 2
+    }
+  ],
+  "pacientes": [
+    {
+      "id": 1,
+      "nome": "Cesar Abascal",
+      "genero": "masculino",
+      "data": "01/01/1993",
+      "cpf": "11122223456",
+      "rg": "8943287",
+      "estado_civil": "solteiro",
+      "telefone": "999999999999",
+      "email": "cesar@gmail.com",
+      "naturalidade": "brasileira",
+      "contatos_emergencia": [
+        {
+          "nome_contato_emergencia": "contato_1",
+          "numero_telefone_contato_emergencia": "999999999999"
+        },
+        {
+          "nome_contato_emergencia": "contato_2",
+          "numero_telefone_contato_emergencia": "999999999999"
+        }
+      ],
+      "convenio": "unimed",
+      "numero_carteira_covenio": "439824932",
+      "validade_carteira_covenio": "01/01/2023",
+      "alergias": [
+        {
+          "tipo_alergia": "camarao"
+        },
+        {
+          "tipo_alergia": "amendoin"
+        }
+      ],
+      "cep": "29837465",
+      "cidade": "São Paulo",
+      "estado": "São Paulo",
+      "logradouro": "Rua sem nome",
+      "numero": "99",
+      "complemento": "sem complemento",
+      "bairro": "Sem Bairro"
+    },
+    {
+      "id": 2,
+      "nome": "Andressa Lima",
+      "genero": "feminino",
+      "data": "01/01/1993",
+      "cpf": "11122223456",
+      "rg": "8943287",
+      "estado_civil": "solteiro",
+      "telefone": "9 8224-4534",
+      "email": "cesar@gmail.com",
+      "naturalidade": "brasileira",
+      "contatos_emergencia": [
+        {
+          "nome_contato_emergencia": "contato_1",
+          "numero_telefone_contato_emergencia": "9 90391023910"
+        },
+        {
+          "nome_contato_emergencia": "contato_2",
+          "numero_telefone_contato_emergencia": "9 468731467814"
+        }
+      ],
+      "convenio": "unimed",
+      "numero_carteira_covenio": "439824932",
+      "validade_carteira_covenio": "01/01/2023",
+      "alergias": [
+        {
+          "tipo_alergia": "ovo"
+        }
+      ],
+      "cep": "29837465",
+      "cidade": "São Paulo",
+      "estado": "São Paulo",
+      "logradouro": "Rua sem nome",
+      "numero": "99",
+      "complemento": "sem complemento",
+      "bairro": "Sem Bairro"
+    }
+  ]
+}
