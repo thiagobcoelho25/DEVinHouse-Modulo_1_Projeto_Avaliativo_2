@@ -1,73 +1,53 @@
-<div class="container_custom">
-    <h2 class="font-color-gray">Utilize a barra de pesquisa para buscar</h2>
-    <app-filter-search-bar (search_term)="termFilter($event)"></app-filter-search-bar>
+<div style="position: relative; padding: 0;">
+    <div class="container_custom">
 
-    <!-- <div class="d-flex flex-row justify-content-around pt-5">
+        <h2 class="font-color-gray">Utilize a barra de pesquisa para buscar</h2>
+        <app-filter-search-bar (search_term)="termFilter($event)"></app-filter-search-bar>
+
+        <!-- <div class="d-flex flex-row justify-content-around pt-5">
         <h6 class="font-color-gray fs-4 fw-bold">Registro</h6>
         <h6 class="font-color-gray fs-4 fw-bold">Nome do Paciente</h6>
         <h6 class="font-color-gray fs-4 fw-bold">Convênio</h6>
     </div> -->
 
 
-    <div class="container text-center pt-5">
-        <div class="row">
-            <div class="col">
-                <h6 class="font-color-gray fs-4 fw-bold">Registro</h6>
+        <div class="container text-center pt-5" *ngIf="!erro_api_backend; else ERRORBACKENDAPI">
+            <div class="row">
+                <div class="col">
+                    <h6 class="font-color-gray fs-4 fw-bold">Registro</h6>
+                </div>
+                <div class="col">
+                    <h6 class="font-color-gray fs-4 fw-bold">Nome do Paciente</h6>
+                </div>
+                <div class="col">
+                    <h6 class="font-color-gray fs-4 fw-bold">Convênio</h6>
+                </div>
             </div>
-            <div class="col">
-                <h6 class="font-color-gray fs-4 fw-bold">Nome do Paciente</h6>
-            </div>
-            <div class="col">
-                <h6 class="font-color-gray fs-4 fw-bold">Convênio</h6>
-            </div>
-        </div>
 
-        <div class="card mt-4">
-            <div class="row py-4">
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">0000000001</p>
+            <div *ngFor="let paciente of lista_filtrada" class="card mt-4">
+                <div class="row py-4">
+                    <div class="col">
+                        <p class="font-color-gray fs-6 fw-bold">{{paciente.id}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="font-color-gray fs-6 fw-bold">{{paciente.nome}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="font-color-gray fs-6 fw-bold">{{paciente.convenio}}</p>
+                    </div>
+                    <a style="position: absolute; height: 50px; width: 50px; left: 95%; top: 15%; cursor: pointer; color: black;"
+                        [routerLink]="['', 'medical_record', paciente.id]"><i class="bi bi-caret-right-fill icon-2em"></i>
+                    </a>
                 </div>
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">Cesar Abascal</p>
-                </div>
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">Unimed</p>
-                </div>
-                <a style="position: absolute; height: 50px; width: 50px; left: 95%; top: 15%; cursor: pointer;"><i
-                        class="bi bi-caret-right-fill icon-2em"></i></a>
             </div>
-        </div>
-        <div class="card mt-4">
-            <div class="row py-4">
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">0000000002</p>
-                </div>
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">Andressa Lima</p>
-                </div>
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">Sem Plano</p>
-                </div>
-                <a style="position: absolute; height: 50px; width: 50px; left: 95%; top: 15%; cursor: pointer;"><i
-                        class="bi bi-caret-right-fill icon-2em"></i></a>
-            </div>
-        </div>
-        <div class="card mt-4">
-            <div class="row py-4">
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">0000000003</p>
-                </div>
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">Saul Souza</p>
-                </div>
-                <div class="col">
-                    <p class="font-color-gray fs-6 fw-bold">Plamev</p>
-                </div>
-                <a style="position: absolute; height: 50px; width: 50px; left: 95%; top: 15%; cursor: pointer;"><i
-                        class="bi bi-caret-right-fill icon-2em"></i></a>
-            </div>
-        </div>
 
+        </div>
     </div>
-    
+    <app-loading-modal *ngIf="carregando_form"></app-loading-modal>
 </div>
+
+<ng-template #ERRORBACKENDAPI>
+    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+        <h3>Erro na requisição na API de backend</h3>
+    </div>
+</ng-template>
