@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListMedicalRecordComponent } from './pages/list-medical-record/list-medical-record.component';
 import { FilterSearchBarComponent } from './components/filter-search-bar/filter-search-bar.component';
 import { CalcularAnosPorDataPipe } from './shared/pipes/calcular-anos-por-data.pipe';
+import { MascaraCpfPipe } from './shared/pipes/mascara-cpf.pipe';
+import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CalcularAnosPorDataPipe } from './shared/pipes/calcular-anos-por-data.p
     RegistrationComponent,
     ListMedicalRecordComponent,
     FilterSearchBarComponent,
-    CalcularAnosPorDataPipe
+    CalcularAnosPorDataPipe,
+    MascaraCpfPipe,
+    LoadingModalComponent,
   ],
   imports: [
     BrowserModule,

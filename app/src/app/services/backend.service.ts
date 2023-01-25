@@ -20,6 +20,20 @@ export class BackendService {
     return this.httpClient.get<Pacientes[]>(`${this.URL}/pacientes`);
   }
 
+  getPacienteById(id: number): Observable<Pacientes> {
+    return this.httpClient.get<Pacientes>(`${this.URL}/pacientes/${id}`);
+  }
+
+  postNewPaciente(paciente: Pacientes): Observable<Pacientes> {
+    return this.httpClient.post<Pacientes>(`${this.URL}/pacientes`, paciente);
+  }
+
+  // atualizar paciente
+  putPaciente(paciente: Pacientes): Observable<Pacientes> {
+    return this.httpClient.put<Pacientes>(`${this.URL}/pacientes/${paciente.id}`, paciente);
+  }
+
+
   getExames(): Observable<Exame[]> {
     return this.httpClient.get<Exame[]>(`${this.URL}/exames`);
   }

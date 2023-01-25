@@ -5,12 +5,13 @@ import { ListMedicalRecordComponent } from './pages/list-medical-record/list-med
 import { RegistrationComponent } from './pages/registration/registration.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' }, { path: 'home', component: HomeComponent }, {
-  path: 'registration', component: RegistrationComponent, children: [
-    { path: ':id', component: RegistrationComponent }
+  path: 'registration', component: RegistrationComponent
+}, { path: 'registration/:id', component: RegistrationComponent }
+  , {
+  path: 'list_medical_record', component: ListMedicalRecordComponent, children: [
+    // {path: ':id'}
   ]
-}, {path: 'list_medical_record', component: ListMedicalRecordComponent, children: [
-  // {path: ':id'}
-]}];
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

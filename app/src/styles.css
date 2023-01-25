@@ -89,6 +89,6 @@ p {
   color: #3c86ad;
 }
 
-input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
   border: 1px solid red;
 }
