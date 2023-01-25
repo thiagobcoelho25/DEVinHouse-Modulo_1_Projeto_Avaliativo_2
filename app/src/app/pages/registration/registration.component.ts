@@ -136,7 +136,7 @@ export class RegistrationComponent implements OnInit {
       telefone: this.registration_edit_form.get('telefone')?.value,
       email: this.registration_edit_form.get('email')?.value,
       contatos_emergencia: this.registration_edit_form.get('array_contatos_emergencia')?.value,
-      convenio: this.registration_edit_form.get('convenio')?.value,
+      convenio: this.registration_edit_form.get('convenio')?.value === null || "" ? "sem_plano" : this.registration_edit_form.get('convenio')?.value,
       numero_carteira_covenio: this.registration_edit_form.get('numero_carteira_covenio')?.value,
       validade_carteira_covenio: this.registration_edit_form.get('validade_carteira_covenio')?.value,
       alergias: this.registration_edit_form.get('array_alergias')?.value,
