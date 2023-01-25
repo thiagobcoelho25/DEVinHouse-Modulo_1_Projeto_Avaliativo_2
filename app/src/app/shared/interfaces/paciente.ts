@@ -8,7 +8,6 @@ export interface Pacientes {
     estado_civil: string,
     telefone: string,
     email: string,
-    naturalidade: string,
     contatos_emergencia: ContatosEmergencia[],
     convenio: string,
     numero_carteira_covenio: string,
