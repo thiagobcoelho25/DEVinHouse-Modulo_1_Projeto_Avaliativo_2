@@ -64,16 +64,16 @@
       "cpf": "11122223456",
       "rg": "8943287",
       "estado_civil": "solteiro",
-      "telefone": "999999999999",
+      "telefone": "(99) 9 9999-99999",
       "email": "cesar@gmail.com",
       "contatos_emergencia": [
         {
           "nome_contato_emergencia": "contato_1",
-          "numero_telefone_contato_emergencia": "999999999999"
+          "numero_telefone_contato_emergencia": "(99) 9 9999-99999"
         },
         {
           "nome_contato_emergencia": "contato_2",
-          "numero_telefone_contato_emergencia": "999999999999"
+          "numero_telefone_contato_emergencia": "(99) 9 9999-99999"
         }
       ],
       "convenio": "unimed",

@@ -4,6 +4,7 @@ import { catchError, Observable, of } from 'rxjs';
 import { Consulta } from '../shared/interfaces/consulta';
 import { Exame } from '../shared/interfaces/exame';
 import { Pacientes } from '../shared/interfaces/paciente';
+import { PacienteProntuario } from '../shared/interfaces/paciente_prontuario';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,10 @@ export class BackendService {
 
   getConsultas(): Observable<Consulta[]> {
     return this.httpClient.get<Consulta[]>(`${this.URL}/consultas`);
+  }
+
+  getPacienteExamesConsultas(id: number): Observable<PacienteProntuario> {
+    return this.httpClient.get<PacienteProntuario>(`${this.URL}/pacientes/${id}?_embed=consultas&_embed=exames`);
   }
 
 

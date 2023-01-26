@@ -154,7 +154,8 @@
                     <input type="text" class="form-control" id="telefone" formControlName="telefone">
                     <div
                         *ngIf="registration_edit_form.controls['telefone'].invalid && (registration_edit_form.controls['telefone'].dirty || registration_edit_form.controls['telefone'].touched)">
-                        <p class="text-danger" *ngIf="registration_edit_form.controls['telefone'].errors?.['invalidTelefone']">
+                        <p class="text-danger"
+                            *ngIf="registration_edit_form.controls['telefone'].errors?.['invalidTelefone']">
                             Telefone Deve seguir: (99) 9 9999-99999
                         </p>
                         <p class="text-danger" *ngIf="registration_edit_form.controls['telefone'].errors?.['required']">
@@ -182,9 +183,13 @@
                             Emergencia</label>
                         <input type="text" title="" class="form-control"
                             formControlName="numero_telefone_contato_emergencia">
-                            <p class="text-danger" *ngIf="registration_edit_form.controls['numero_telefone_contato_emergencia'].errors?.['invalidTelefone']">
+                        <div
+                            *ngIf="retornoControleByIndexTelefoneContatoEmergencia(i).controls['numero_telefone_contato_emergencia'].invalid && (retornoControleByIndexTelefoneContatoEmergencia(i).controls['numero_telefone_contato_emergencia'].dirty || retornoControleByIndexTelefoneContatoEmergencia(i).controls['numero_telefone_contato_emergencia'].touched)">
+                            <p class="text-danger"
+                                *ngIf="retornoControleByIndexTelefoneContatoEmergencia(i).controls['numero_telefone_contato_emergencia'].errors?.['invalidTelefone']">
                                 Telefone Deve seguir: (99) 9 9999-99999
                             </p>
+                        </div>
                     </div>
                     <button type="button" class="btn btn-danger" (click)="onDeleteContatos_Emergencia(i)">X</button>
                 </div>

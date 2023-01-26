@@ -1,1 +1,26 @@
-<p>medical-record works!</p>
+<div style="position: relative; padding: 0;">
+    <div class="container_custom">
+        <ng-container *ngIf="paciente_prontuario">
+            <h2 class="fw-bold font-color-gray">{{paciente_prontuario.nome}}</h2>
+
+            <h3 class="font-color-gray">Convenio: {{paciente_prontuario.convenio}}</h3>
+            <div class="d-flex flex-row mb-5 flex-gap-15px">
+                <h5 class="font-color-gray">Alergias:</h5>
+                <h5 class="font-color-gray" *ngFor="let alergia of paciente_prontuario.alergias">
+                    ({{alergia.tipo_alergia}})
+                </h5>
+            </div>
+
+            <div class="container_exame_consulta" style="background-color: gray;" *ngFor="let prontuario_info of ">
+
+            </div>
+        </ng-container>
+    </div>
+    <app-loading-modal *ngIf="carregando_dados"></app-loading-modal>
+</div>
+
+<ng-template #ERRORBACKENDAPI>
+    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+        <h3>Erro na requisição na API de backend</h3>
+    </div>
+</ng-template>
