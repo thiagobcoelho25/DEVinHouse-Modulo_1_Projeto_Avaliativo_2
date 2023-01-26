@@ -15,6 +15,8 @@ import { CalcularAnosPorDataPipe } from './shared/pipes/calcular-anos-por-data.p
 import { MascaraCpfPipe } from './shared/pipes/mascara-cpf.pipe';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { MedicalRecordComponent } from './pages/medical-record/medical-record.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { LayoutContainerComponent } from './pages/layout-container/layout-container.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { MedicalRecordComponent } from './pages/medical-record/medical-record.co
     MascaraCpfPipe,
     LoadingModalComponent,
     MedicalRecordComponent,
+    LoginPageComponent,
+    LayoutContainerComponent,
   ],
   imports: [
     BrowserModule,
