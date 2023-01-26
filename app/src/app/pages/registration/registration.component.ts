@@ -279,6 +279,10 @@ export class RegistrationComponent implements OnInit {
     (<FormArray>this.registration_edit_form.get('array_alergias')).removeAt(index)
   }
 
+  retornoControleByIndexTelefoneContatoEmergencia(index: number){
+    return (<FormArray<FormGroup>>this.registration_edit_form.get('array_contatos_emergencia')).at(index)
+    // .controls['numero_telefone_contato_emergencia'].errors?.['invalidTelefone']
+  }
 
   dateValidator(c: AbstractControl): ValidationErrors | null {
     let value = c.value;
@@ -301,7 +305,6 @@ export class RegistrationComponent implements OnInit {
     }
     return null
   }
-
 
   // RegEx para (99) 9 9999-99999
   telefoneValidator(c: AbstractControl): ValidationErrors | null {
