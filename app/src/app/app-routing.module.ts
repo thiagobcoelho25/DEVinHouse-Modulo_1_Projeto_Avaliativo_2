@@ -6,11 +6,12 @@ import { ListMedicalRecordComponent } from './pages/list-medical-record/list-med
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MedicalRecordComponent } from './pages/medical-record/medical-record.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { AuthGuard } from './security/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   {
-    path: '', component: LayoutContainerComponent, children: [
+    path: '', component: LayoutContainerComponent, canActivate: [AuthGuard], children: [
       { path: '', component: HomeComponent },
       { path: 'home', redirectTo: '' },
       {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,9 @@ import { LoadingModalComponent } from './components/loading-modal/loading-modal.
 import { MedicalRecordComponent } from './pages/medical-record/medical-record.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LayoutContainerComponent } from './pages/layout-container/layout-container.component';
+import { AuthInterceptor } from './security/auth-interceptor';
+import { AuthGuard } from './security/auth.guard';
+import { ModalCreateAccountComponent } from './pages/login-page/modal-create-account/modal-create-account.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { LayoutContainerComponent } from './pages/layout-container/layout-contai
     MedicalRecordComponent,
     LoginPageComponent,
     LayoutContainerComponent,
+    ModalCreateAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { LayoutContainerComponent } from './pages/layout-container/layout-contai
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard
+    // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
