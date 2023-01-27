@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable } from 'rxjs';
+import { catchError, concat, map, Observable } from 'rxjs';
 import { Usuario } from '../shared/interfaces/usuario';
 
 @Injectable({
@@ -28,6 +28,23 @@ export class LoginServiceService {
         throw 'Falhaao efetuar Login'
       })
     )
+  }
+
+  public getUsers(new_user: Usuario): Observable<any> {
+    return concat(this.http_client.get<Usuario[]>(`${this.url}/users`).pipe(
+      map(data => {
+        const userExists = data.find(usuario => usuario.email === new_user.email)
+
+        if (userExists) {
+          throw new Error('usuario ja existe');
+        }
+      })), this.createUser(new_user).pipe(catchError(err => {
+          throw new Error('Erro Na Api de Criação')
+      })))
+  }
+
+  public createUser(usuario: Usuario): Observable<any> {
+    return this.http_client.post<Usuario>(`${this.url}/users`, usuario)
   }
 
   public getToken(): string | null {

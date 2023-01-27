@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +15,6 @@ import { MenuLeftBarComponent } from './components/menu-left-bar/menu-left-bar.c
 import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ListMedicalRecordComponent } from './pages/list-medical-record/list-medical-record.component';
 import { FilterSearchBarComponent } from './components/filter-search-bar/filter-search-bar.component';
 import { CalcularAnosPorDataPipe } from './shared/pipes/calcular-anos-por-data.pipe';
@@ -42,7 +48,13 @@ import { ModalCreateAccountComponent } from './pages/login-page/modal-create-acc
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard
     // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

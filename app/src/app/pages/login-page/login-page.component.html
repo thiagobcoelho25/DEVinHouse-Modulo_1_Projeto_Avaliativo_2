@@ -11,7 +11,7 @@
     <div class="d-flex flex-column align-items-center justify-content-between" style="flex: 1.5;">
         <div class="d-flex flex-row align-items-center justify-content-end p-3 w-100 flex-gap-15px">
             <p>Não Possui uma conta?</p>
-            <button class="fw-bold px-5 py-1 botao-criar">Criar Conta</button>
+            <button class="fw-bold px-5 py-1 botao-criar" (click)="criarConta()">Criar Conta</button>
         </div>
 
 
@@ -39,7 +39,7 @@
                     <div
                         *ngIf="form_login.controls['password'].invalid && (form_login.controls['password'].dirty || form_login.controls['password'].touched)">
                         <p class="text-danger"
-                            *ngIf="form_login.get('password')?.hasError('maxlength')">
+                            *ngIf="form_login.get('password')?.hasError('minlength')">
                             Senha deve ter no Minino 8 Caracteres</p>
                         <p class="text-danger" *ngIf="form_login.controls['password'].errors?.['required']">
                             Senha é obrigatorio
