@@ -1,0 +1,14 @@
+.botao-criar {
+    border: 2px solid #003478;
+    background-color: white;
+    color:#003478;
+    border-radius: 5px;
+}
+
+.botao-login {
+    border: 2px solid #003478;
+    background-color: #003478;
+    color:white;
+    border-radius: 5px;
+    padding: 5px 0 5px 0;
+}

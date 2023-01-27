@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Cadastro de Usuario</h1>
+<div mat-dialog-content style="padding-top: 20px;">
+    <form [formGroup]="form_cadatro">
+        <mat-form-field appearance="outline" [hideRequiredMarker]="true" class="position_content_inside_modal">
+            <mat-label>Nome</mat-label>
+            <input matInput required formControlName="nome">
+            <mat-error *ngIf="form_cadatro.get('nome')?.invalid">{{getErrorMessageNome()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [hideRequiredMarker]="true" class="position_content_inside_modal">
+            <mat-label>Email</mat-label>
+            <input matInput required formControlName="email">
+            <mat-error *ngIf="form_cadatro.get('email')?.invalid">{{getErrorMessageEmail()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [hideRequiredMarker]="true" class="position_content_inside_modal">
+            <mat-label>Senha</mat-label>
+            <input required matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide" style="background-color: white; padding-right: 10px; font-size: 1.5em;">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="form_cadatro.get('password')?.invalid">{{getErrorMessageSenha()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [hideRequiredMarker]="true" class="position_content_inside_modal">
+            <mat-label>Confirmação de Senha</mat-label>
+            <input required matInput type='password' formControlName="exact_password">
+            <mat-error
+                *ngIf="form_cadatro.get('exact_password')?.invalid">{{getErrorMessageConfirmacaoSenha()}}</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'center'">
+    <button mat-raised-button color="warn" (click)="onClickCloseDialog()">Cancelar</button>
+    <button mat-raised-button color="primary" [disabled]="!form_cadatro.valid" (click)="onClickCreateUser()" >Criar</button>
+</div>
