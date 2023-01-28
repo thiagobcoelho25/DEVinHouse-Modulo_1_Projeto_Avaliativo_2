@@ -97,7 +97,7 @@ export class RegistrationComponent implements OnInit {
               array_contatos_emergencia.push(
                 new FormGroup({
                   nome_contato_emergencia: new FormControl(contato_emergencia.nome_contato_emergencia, Validators.required),
-                  numero_telefone_contato_emergencia: new FormControl(contato_emergencia.numero_telefone_contato_emergencia,[Validators.required, this.telefoneValidator])
+                  numero_telefone_contato_emergencia: new FormControl(contato_emergencia.numero_telefone_contato_emergencia, [Validators.required, this.telefoneValidator])
                 })
               )
             })
@@ -279,7 +279,7 @@ export class RegistrationComponent implements OnInit {
     (<FormArray>this.registration_edit_form.get('array_alergias')).removeAt(index)
   }
 
-  retornoControleByIndexTelefoneContatoEmergencia(index: number){
+  retornoControleByIndexTelefoneContatoEmergencia(index: number) {
     return (<FormArray<FormGroup>>this.registration_edit_form.get('array_contatos_emergencia')).at(index)
     // .controls['numero_telefone_contato_emergencia'].errors?.['invalidTelefone']
   }
@@ -308,7 +308,7 @@ export class RegistrationComponent implements OnInit {
 
   // RegEx para (99) 9 9999-99999
   telefoneValidator(c: AbstractControl): ValidationErrors | null {
-    let value:string = c.value;
+    let value: string = c.value;
     let match = (value.match(/^(?:\()[0-9]{2}(?:\))\s?[0-9]{1}\s?[0-9]{4}(?:-)[0-9]{5}$/))
     if (!match) {
       return { 'invalidTelefone': true };
@@ -316,7 +316,26 @@ export class RegistrationComponent implements OnInit {
     return null
   }
 
-  // -------------------------------------- ERROS --------------------------------------------------------
+  deleteRegistration() {
+    this.carregando_form = true
+    this.api_backend.deletePaciente(this.id).subscribe({
+      next: next => {
+        this.frase_apos_submit = 'delete_user'
+      }, error: (err: Error) => {
+        if (err.message === 'Paciente Possui Exames/Consultas') {
+          this.frase_apos_submit = 'delete_error'
+        } else {
+          this.frase_apos_submit = 'error'
+        }
+      },
+    }).add(() => {
+      this.carregando_form = false
+    })
+  }
+
+}
+
+// -------------------------------------- ERROS --------------------------------------------------------
   // Validação com AsyncValidator utilizando this.registration_edit_form, ou da undefined ou apresenta loop/reativação constante
 
   // cepValidatorAsync(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
@@ -376,6 +395,3 @@ export class RegistrationComponent implements OnInit {
   //     });
   //     return promise;
   // }
-
-
-}
