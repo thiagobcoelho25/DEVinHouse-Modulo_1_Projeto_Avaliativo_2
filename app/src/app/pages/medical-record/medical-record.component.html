@@ -1,20 +1,72 @@
 <div style="position: relative; padding: 0;">
     <div class="container_custom">
-        <ng-container *ngIf="paciente_prontuario">
-            <h2 class="fw-bold font-color-gray">{{paciente_prontuario.nome}}</h2>
-
-            <h3 class="font-color-gray">Convenio: {{paciente_prontuario.convenio}}</h3>
-            <div class="d-flex flex-row mb-5 flex-gap-15px">
-                <h5 class="font-color-gray">Alergias:</h5>
-                <h5 class="font-color-gray" *ngFor="let alergia of paciente_prontuario.alergias">
-                    ({{alergia.tipo_alergia}})
-                </h5>
-            </div>
-
-            <div class="container_exame_consulta" style="background-color: gray;" *ngFor="let prontuario_info of ">
-
-            </div>
+        
+        <ng-container *ngIf="!carregando_dados">
+            <ng-container *ngIf="paciente_prontuario; else ERRORBACKENDAPI">
+                <h2 class="fw-bold font-color-gray mb-3">{{paciente_prontuario.nome}}</h2>
+    
+                <h3 class="font-color-gray mb-3">Convenio: {{paciente_prontuario.convenio}}</h3>
+                <div class="d-flex flex-row mb-3 flex-gap-15px">
+                    <h5 class="font-color-gray">Alergias:</h5>
+                    <h5 class="font-color-gray" *ngFor="let alergia of paciente_prontuario.alergias">
+                        ({{alergia.tipo_alergia}})
+                    </h5>
+                </div>
+                <div class="d-flex flex-row mb-5 flex-gap-15px">
+                    <h5 class="font-color-gray">Contatos de Emergencia:</h5>
+                    <h5 class="font-color-gray" *ngFor="let contatos of paciente_prontuario.contatos_emergencia">
+                        {{contatos.nome_contato_emergencia}}: {{contatos.numero_telefone_contato_emergencia}},
+                    </h5>
+                </div>
+    
+    
+                <div class="timeline">
+                    <div class="timeline-container primary"
+                        *ngFor="let exame_consulta of exames_consultas_prontuario; let i = index">
+                        <div class="timeline-icon">
+                            <p>{{i + 1}}</p>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="d-flex flex-row w-100 justify-content-between">
+                                <h4 class="timeline-title"><span class="badge">{{exame_consulta.tipo}}</span></h4>
+                                <ng-container *ngIf="exame_consulta.tipo === 'consulta'; else LINKEXAME ">
+                                    <a style="cursor: pointer;" [routerLink]="['', 'registration_medical_appointment', exame_consulta.id]">
+                                        <i class="bi bi-pencil-square text-black icon-2em"></i>
+                                    </a>
+                                </ng-container>
+                                <ng-template #LINKEXAME>
+                                    <a style="cursor: pointer;" [routerLink]="['', 'registration_medical_exam', exame_consulta.id]">
+                                        <i class="bi bi-pencil-square text-black icon-2em"></i>
+                                    </a>
+                                </ng-template>
+                            </div>
+                            <div *ngIf="exame_consulta.tipo === 'consulta'; else exame">
+                                <p class="pb-2">Motivo: {{exame_consulta.motivo}}</p>
+                                <p class="pb-2">Descricao do problema: {{exame_consulta.descricao_do_problema}}</p>
+                                <p class="pb-2">Medicacao receitada: {{exame_consulta.medicacao_receitada}}</p>
+                                <p class="pb-2">Dosagem: {{exame_consulta.dosagem_e_precaucoes}}</p>
+                            </div>
+                            <ng-template #exame>
+                                <p class="pb-2">Nome do Exame: {{exame_consulta.nome_do_exame}}</p>
+                                <p class="pb-2">Tipo do exame: {{exame_consulta.tipo_do_exame}}</p>
+                                <p class="pb-2">Laboratorio: {{exame_consulta.laboratorio}}</p>
+                                <p class="pb-2">Resultado: {{exame_consulta.resultado_do_exame}}</p>
+                                <div >
+                                    <p class="pb-2">Anexo:</p>
+                                    <a [href]="exame_consulta.url_do_documento_do_exame" target="_blank">
+                                        <i class="bi bi-paperclip icon-2em"></i>
+                                    </a>
+                                </div>
+                            </ng-template>
+                            <p class="timeline-subtitle">data: {{exame_consulta.data}} as {{exame_consulta.hora}}</p>
+                        </div>
+                    </div>
+    
+                </div>
+    
+            </ng-container>
         </ng-container>
+
     </div>
     <app-loading-modal *ngIf="carregando_dados"></app-loading-modal>
 </div>
