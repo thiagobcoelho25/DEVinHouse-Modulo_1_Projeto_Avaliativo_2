@@ -25,16 +25,6 @@
   ],
   "consultas": [
     {
-      "id": 1,
-      "motivo": "motivo da consulta 1",
-      "data_da_consulta": "01/01/2023",
-      "hora_da_consulta": "13:11:50",
-      "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
-      "medicacao_receitada": "Lorem ipsum dolor",
-      "dosagem_e_precauções": "3 vezes ao dia",
-      "pacienteId": 1
-    },
-    {
       "id": 2,
       "motivo": "motivo da consulta 2",
       "data_da_consulta": "02/01/2023",
@@ -45,10 +35,20 @@
       "pacienteId": 1
     },
     {
+      "id": 1,
+      "motivo": "motivo da consulta 1",
+      "data_da_consulta": "01/01/2023",
+      "hora_da_consulta": "13:11:50",
+      "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
+      "medicacao_receitada": "Lorem ipsum dolor",
+      "dosagem_e_precauções": "3 vezes ao dia",
+      "pacienteId": 1
+    },
+    {
       "id": 3,
       "motivo": "motivo da consulta 3",
       "data_da_consulta": "01/01/2023",
-      "hora_da_consulta": "01/01/2023",
+      "hora_da_consulta": "13:11:50",
       "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
       "medicacao_receitada": "Lorem ipsum dolor",
       "dosagem_e_precauções": "3 vezes ao dia",

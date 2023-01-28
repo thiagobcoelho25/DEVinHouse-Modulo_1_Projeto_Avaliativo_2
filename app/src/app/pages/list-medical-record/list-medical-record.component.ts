@@ -7,7 +7,7 @@ import { Pacientes } from 'src/app/shared/interfaces/paciente';
 @Component({
   selector: 'app-list-medical-record',
   templateUrl: './list-medical-record.component.html',
-  styleUrls: ['./list-medical-record.component.css']
+  styleUrls: ['./list-medical-record.component.scss']
 })
 export class ListMedicalRecordComponent implements OnInit {
 

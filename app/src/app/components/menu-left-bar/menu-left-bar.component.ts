@@ -5,7 +5,7 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 @Component({
   selector: 'app-menu-left-bar',
   templateUrl: './menu-left-bar.component.html',
-  styleUrls: ['./menu-left-bar.component.css']
+  styleUrls: ['./menu-left-bar.component.scss']
 })
 export class MenuLeftBarComponent {
 
