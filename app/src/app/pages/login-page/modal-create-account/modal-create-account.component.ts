@@ -8,7 +8,7 @@ import { Usuario } from 'src/app/shared/interfaces/usuario';
 @Component({
   selector: 'app-modal-create-account',
   templateUrl: './modal-create-account.component.html',
-  styleUrls: ['./modal-create-account.component.css']
+  styleUrls: ['./modal-create-account.component.scss']
 })
 export class ModalCreateAccountComponent implements OnInit {
   public form_cadatro: FormGroup

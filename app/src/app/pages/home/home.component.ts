@@ -9,7 +9,7 @@ import { Pacientes } from 'src/app/shared/interfaces/paciente';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 

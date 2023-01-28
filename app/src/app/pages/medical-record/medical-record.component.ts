@@ -7,7 +7,7 @@ import { PacienteProntuario } from 'src/app/shared/interfaces/paciente_prontuari
 @Component({
   selector: 'app-medical-record',
   templateUrl: './medical-record.component.html',
-  styleUrls: ['./medical-record.component.css']
+  styleUrls: ['./medical-record.component.scss']
 })
 export class MedicalRecordComponent implements OnInit {
   id!: number
@@ -31,6 +31,8 @@ export class MedicalRecordComponent implements OnInit {
         this.erro_dados = true
         console.log('Error da Inicialização do prontuario:', err)
       }
+    }).add( () => {
+      this.carregando_dados = false
     })
     
   }
