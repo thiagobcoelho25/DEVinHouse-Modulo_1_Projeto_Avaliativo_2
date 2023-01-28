@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, concat, delay, map, Observable, of } from 'rxjs';
 import { Consulta } from '../shared/interfaces/consulta';
 import { Exame } from '../shared/interfaces/exame';
 import { Pacientes } from '../shared/interfaces/paciente';
@@ -29,11 +29,9 @@ export class BackendService {
     return this.httpClient.post<Pacientes>(`${this.URL}/pacientes`, paciente);
   }
 
-  // atualizar paciente
   putPaciente(paciente: Pacientes): Observable<Pacientes> {
     return this.httpClient.put<Pacientes>(`${this.URL}/pacientes/${paciente.id}`, paciente);
   }
-
 
   getExames(): Observable<Exame[]> {
     return this.httpClient.get<Exame[]>(`${this.URL}/exames`);
@@ -45,6 +43,18 @@ export class BackendService {
 
   getPacienteExamesConsultas(id: number): Observable<PacienteProntuario> {
     return this.httpClient.get<PacienteProntuario>(`${this.URL}/pacientes/${id}?_embed=consultas&_embed=exames`);
+  }
+
+  deletePaciente(id: number) {
+    return concat(this.getPacienteExamesConsultas(id).pipe(map(data => {
+      if ((data.exames.length > 0 || data.consultas.length > 0) || !data) {
+        throw new Error('Paciente Possui Exames/Consultas');
+      } else {
+        return data
+      }
+    }), delay(3000)), this.httpClient.delete<Pacientes>(`${this.URL}/pacientes/${id}`).pipe(catchError(err => {
+      throw new Error('Erro Na Api de Deleção')
+    })))
   }
 
 

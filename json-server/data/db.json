@@ -134,13 +134,13 @@
   ],
   "users": [
     {
-      "id":1,
+      "id": 1,
       "name": "cesar",
       "email": "cesar@gmail.com",
       "password": "123456"
     },
     {
-      "id":2,
+      "id": 2,
       "name": "admin",
       "email": "admin@admin",
       "password": "adminadmin"
