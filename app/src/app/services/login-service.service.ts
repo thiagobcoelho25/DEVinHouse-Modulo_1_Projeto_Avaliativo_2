@@ -61,6 +61,10 @@ export class LoginServiceService {
     localStorage.removeItem('token')
   }
 
+  public logout(){
+    this.removerTokenLocalStorage()
+  }
+
 }
 
 // public login(username: string, password: string): Observable<any>{
