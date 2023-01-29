@@ -10,17 +10,16 @@ export class LoginServiceService {
 
   constructor(private http_client: HttpClient) { }
 
-
   url: string = 'http://localhost:3000'
 
 
-  public login(username: string, password: string): Observable<any> {
+  public login(user_email: string, password: string): Observable<any> {
     return this.http_client.get<Usuario[]>(`${this.url}/users`).pipe(
       map((data) => {
-        const userExists = data.find(usuario => usuario.email === username && usuario.password === password)
+        const userExists = data.find(usuario => usuario.email === user_email && usuario.password === password)
 
         if (userExists) {
-          this.setTokenLocalStorage({ token: 'TOKEN_USER_JWT_AUTHENTICATED' })
+          this.setTokenLocalStorage({token: JSON.stringify({ nome: userExists.name })})
         }
         return data
       }), catchError((err) => {

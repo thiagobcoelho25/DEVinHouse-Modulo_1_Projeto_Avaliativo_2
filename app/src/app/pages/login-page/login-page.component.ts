@@ -38,7 +38,6 @@ export class LoginPageComponent implements OnInit {
 
     this.login_service.login(username, password).subscribe({
       next: value => {
-        console.log('Sucesso no Login: ', value)
         this.router.navigate(['']);
       }, error: err => {
         console.log('error no login:  ', err)
