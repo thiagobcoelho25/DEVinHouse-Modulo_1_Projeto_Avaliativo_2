@@ -65,4 +65,12 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+  notificarFuncionalidadeEmConstrucao(){
+    this.snack_bar.open('Função em Construção', "", {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 2000,
+    });
+  }
+
 }

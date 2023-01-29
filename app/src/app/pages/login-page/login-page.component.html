@@ -48,7 +48,9 @@
                 </div>
 
                 <button class="mt-3 botao-login" type="submit" [disabled]="!form_login.valid">Entrar</button>
-                <p class="text-center">Esqueceu a senha?</p>
+                <div class="d-flex flex-row justify-content-center">
+                    <a class="text-center" style="cursor: pointer; text-decoration: none;" (click)="notificarFuncionalidadeEmConstrucao()">Esqueceu a senha?</a>
+                </div>
             </form>
         </div>
 
