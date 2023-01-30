@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LayoutContainerComponent } from './pages/layout-container/layout-container.component';
 import { ListMedicalRecordComponent } from './pages/list-medical-record/list-medical-record.component';
@@ -19,17 +20,11 @@ const routes: Routes = [
       },
       { path: 'registration/:id', component: RegistrationComponent }
       ,{ path: 'list_medical_record', component: ListMedicalRecordComponent },
-      { path: 'medical_record/:id', component: MedicalRecordComponent }
+      { path: 'medical_record/:id', component: MedicalRecordComponent },
+      {path: 'registration_medical_appointment', component: AppointmentComponent}
     ],
   },
   {path: 'logout', redirectTo: 'login'},
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: 'home', component: HomeComponent }, {
-  //   path: 'registration', component: RegistrationComponent
-  // },
-  // { path: 'registration/:id', component: RegistrationComponent }
-  // , { path: 'list_medical_record', component: ListMedicalRecordComponent },
-  // { path: 'medical_record/:id', component: MedicalRecordComponent },
   { path: '**', redirectTo: 'login' }];
 
 @NgModule({
