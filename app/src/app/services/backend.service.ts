@@ -41,6 +41,22 @@ export class BackendService {
     return this.httpClient.get<Consulta[]>(`${this.URL}/consultas`);
   }
 
+  getConsulta(consulta_id: number): Observable<Consulta> {
+    return this.httpClient.get<Consulta>(`${this.URL}/consultas/${consulta_id}`);
+  }
+
+  postNewConsulta(consulta: Consulta): Observable<Consulta> {
+    return this.httpClient.post<Consulta>(`${this.URL}/consultas`, consulta);
+  }
+
+  putConsulta(consulta: Consulta): Observable<Consulta> {
+    return this.httpClient.put<Consulta>(`${this.URL}/consultas/${consulta.id}`, consulta);
+  }
+
+  deleteConsulta(id: number){
+    return this.httpClient.delete<Consulta>(`${this.URL}/consultas/${id}`)
+  }
+
   getPacienteExamesConsultas(id: number): Observable<PacienteProntuario> {
     return this.httpClient.get<PacienteProntuario>(`${this.URL}/pacientes/${id}?_embed=consultas&_embed=exames`);
   }
