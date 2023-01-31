@@ -1,5 +1,5 @@
 <div class="container_custom">
-    <h2 class="font-color-gray">Estatísticas do Sistema</h2>
+    <h2 class="font-color-gray fw-bold">Estatísticas do Sistema</h2>
 
     <div class="d-flex flex-row justify-content-between mb-3">
         <div class="card text-center shadow p-1 mb-3 bg-body-tertiary rounded">
@@ -46,7 +46,7 @@
                     <h5 class="card-title">{{paciente.nome}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{paciente.data | calcularAnosPorData}}</h6>
                     <h6 class="card-subtitle font-color-gray fs-4 fw-bold">{{paciente.telefone}}</h6>
-                    <h5 class="card-title text-primary">{{paciente.convenio}}</h5>
+                    <h5 [ngStyle]="paciente.convenio === 'sem_plano' ? {'color': 'orange'} : {'color': 'blue'}" class="card-title fs-3 fw-bold">{{paciente.convenio}}</h5>
                     <a [routerLink]="['', 'registration', paciente.id]" class="text-decoration-none w-auto"
                         style="cursor: pointer;">
                         <p class="card-text font-color-gray">Ver mais</p>
