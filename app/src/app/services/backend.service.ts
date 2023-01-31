@@ -37,6 +37,22 @@ export class BackendService {
     return this.httpClient.get<Exame[]>(`${this.URL}/exames`);
   }
 
+  getExame(exame_id: number): Observable<Exame> {
+    return this.httpClient.get<Exame>(`${this.URL}/exames/${exame_id}`);
+  }
+
+  postNewExame(exame: Exame): Observable<Exame> {
+    return this.httpClient.post<Exame>(`${this.URL}/exames`, exame);
+  }
+
+  putExame(exame: Exame): Observable<Exame> {
+    return this.httpClient.put<Exame>(`${this.URL}/exames/${exame.id}`, exame);
+  }
+
+  deleteExame(id: number){
+    return this.httpClient.delete<Exame>(`${this.URL}/exames/${id}`)
+  }
+
   getConsultas(): Observable<Consulta[]> {
     return this.httpClient.get<Consulta[]>(`${this.URL}/consultas`);
   }

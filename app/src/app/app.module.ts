@@ -32,6 +32,7 @@ import { ModalCreateAccountComponent } from './pages/login-page/modal-create-acc
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { FilterSearchBarResponsiveComponent } from './components/filter-search-bar-responsive/filter-search-bar-responsive.component';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ExamComponent } from './pages/exam/exam.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     ModalCreateAccountComponent,
     AppointmentComponent,
     FilterSearchBarResponsiveComponent,
+    ExamComponent,
   ],
   imports: [
     BrowserModule,
