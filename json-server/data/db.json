@@ -27,7 +27,7 @@
     {
       "id": 2,
       "motivo": "motivo da consulta 2",
-      "data_da_consulta": "02/01/2023",
+      "data_da_consulta": "2023-01-02T03:00:00.000Z",
       "hora_da_consulta": "13:11:50",
       "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
       "medicacao_receitada": "Lorem ipsum dolor",
@@ -47,12 +47,22 @@
     {
       "id": 3,
       "motivo": "motivo da consulta 3",
-      "data_da_consulta": "01/01/2023",
+      "data_da_consulta": "2023-01-01T03:00:00.000Z",
       "hora_da_consulta": "13:11:50",
       "descricao_do_problema": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, modi harum mollitia culpa exercitationem possimus. Officia, ea minus voluptatum voluptatem ad est maiores eveniet? Quasi ab maxime distinctio aliquid molestias.",
       "medicacao_receitada": "Lorem ipsum dolor",
       "dosagem_e_precauções": "3 vezes ao dia",
       "pacienteId": 2
+    },
+    {
+      "data_da_consulta": "2023-01-31T03:00:00.000Z",
+      "motivo": "weweqwqeqweqweeqw",
+      "hora_da_consulta": "22:33",
+      "dosagem_e_precauções": "qweqeqeqeqweqeqeq",
+      "descricao_do_problema": "weqqweeeeeeeeeeeeeee",
+      "medicacao_receitada": "qweqeqeqeqeqw",
+      "pacienteId": 1,
+      "id": 4
     }
   ],
   "pacientes": [
