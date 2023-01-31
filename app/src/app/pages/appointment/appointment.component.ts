@@ -65,41 +65,45 @@ export class AppointmentComponent implements OnInit {
 
 
   onSubmit() {
-    if(this.edit_mode){
-      const consulta: Consulta = {
-        data_da_consulta: this.form_cadatro_consulta.get('data_da_consulta')?.value,
-        motivo: this.form_cadatro_consulta.get('motivo')?.value,
-        hora_da_consulta: this.form_cadatro_consulta.get('hora_da_consulta')?.value,
-        dosagem_e_precauções: this.form_cadatro_consulta.get('dosagem')?.value,
-        descricao_do_problema: this.form_cadatro_consulta.get('descricao')?.value,
-        medicacao_receitada: this.form_cadatro_consulta.get('medicacao')?.value,
-        pacienteId: this.paciente_selected.id!,
-        id: this.id
+    if(this.form_cadatro_consulta.valid){
+      if(this.edit_mode){
+        const consulta: Consulta = {
+          data_da_consulta: this.form_cadatro_consulta.get('data_da_consulta')?.value,
+          motivo: this.form_cadatro_consulta.get('motivo')?.value,
+          hora_da_consulta: this.form_cadatro_consulta.get('hora_da_consulta')?.value,
+          dosagem_e_precauções: this.form_cadatro_consulta.get('dosagem')?.value,
+          descricao_do_problema: this.form_cadatro_consulta.get('descricao')?.value,
+          medicacao_receitada: this.form_cadatro_consulta.get('medicacao')?.value,
+          pacienteId: this.paciente_selected.id!,
+          id: this.id
+        }
+  
+        this.api_backend.putConsulta(consulta).subscribe({next: value => {
+          this.frase_apos_submit = 'edit_appointment'
+        }, error: err => {
+          this.frase_apos_submit = 'error'
+        }})
+  
+      } else {
+        const consulta: Consulta = {
+          data_da_consulta: this.form_cadatro_consulta.get('data_da_consulta')?.value,
+          motivo: this.form_cadatro_consulta.get('motivo')?.value,
+          hora_da_consulta: this.form_cadatro_consulta.get('hora_da_consulta')?.value,
+          dosagem_e_precauções: this.form_cadatro_consulta.get('dosagem')?.value,
+          descricao_do_problema: this.form_cadatro_consulta.get('descricao')?.value,
+          medicacao_receitada: this.form_cadatro_consulta.get('medicacao')?.value,
+          pacienteId: this.paciente_selected.id!,
+          id: null
+        }
+  
+        this.api_backend.postNewConsulta(consulta).subscribe({next: value => {
+          this.frase_apos_submit = 'new_appointment'
+        }, error: err => {
+          this.frase_apos_submit = 'error'
+        }})
       }
-
-      this.api_backend.putConsulta(consulta).subscribe({next: value => {
-        this.frase_apos_submit = 'edit_appointment'
-      }, error: err => {
-        this.frase_apos_submit = 'error'
-      }})
-
     } else {
-      const consulta: Consulta = {
-        data_da_consulta: this.form_cadatro_consulta.get('data_da_consulta')?.value,
-        motivo: this.form_cadatro_consulta.get('motivo')?.value,
-        hora_da_consulta: this.form_cadatro_consulta.get('hora_da_consulta')?.value,
-        dosagem_e_precauções: this.form_cadatro_consulta.get('dosagem')?.value,
-        descricao_do_problema: this.form_cadatro_consulta.get('descricao')?.value,
-        medicacao_receitada: this.form_cadatro_consulta.get('medicacao')?.value,
-        pacienteId: this.paciente_selected.id!,
-        id: null
-      }
-
-      this.api_backend.postNewConsulta(consulta).subscribe({next: value => {
-        this.frase_apos_submit = 'new_appointment'
-      }, error: err => {
-        this.frase_apos_submit = 'error'
-      }})
+      this.form_cadatro_consulta.markAllAsTouched()
     }
   }
 
