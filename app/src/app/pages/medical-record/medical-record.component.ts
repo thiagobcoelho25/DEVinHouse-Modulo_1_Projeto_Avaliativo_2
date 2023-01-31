@@ -61,7 +61,7 @@ export class MedicalRecordComponent implements OnInit {
       if (ele.hasOwnProperty('data_da_consulta')) {
         const ele_consulta = ele as Consulta
         return {
-          data: ele_consulta.data_da_consulta,
+          data: new Date(ele_consulta.data_da_consulta).toLocaleDateString('pt-BR'),
           hora: ele_consulta.hora_da_consulta,
           id: ele_consulta.id,
           motivo: ele_consulta.motivo,
@@ -75,7 +75,7 @@ export class MedicalRecordComponent implements OnInit {
         const ele_exame = ele as Exame
         return {
           id: ele_exame.id,
-          data: ele_exame.data_do_exame,
+          data: new Date(ele_exame.data_do_exame).toLocaleDateString('pt-BR'),
           hora: ele_exame.hora_do_exame,
           laboratorio: ele_exame.laboratorio,
           nome_do_exame: ele_exame.nome_do_exame,
