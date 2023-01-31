@@ -9,6 +9,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +31,7 @@ import { AuthGuard } from './security/auth.guard';
 import { ModalCreateAccountComponent } from './pages/login-page/modal-create-account/modal-create-account.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { FilterSearchBarResponsiveComponent } from './components/filter-search-bar-responsive/filter-search-bar-responsive.component';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -60,9 +63,13 @@ import { FilterSearchBarResponsiveComponent } from './components/filter-search-b
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule
   ],
-  providers: [AuthGuard
+  providers: [AuthGuard,
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
     // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

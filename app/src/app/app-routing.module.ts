@@ -21,7 +21,8 @@ const routes: Routes = [
       { path: 'registration/:id', component: RegistrationComponent }
       ,{ path: 'list_medical_record', component: ListMedicalRecordComponent },
       { path: 'medical_record/:id', component: MedicalRecordComponent },
-      {path: 'registration_medical_appointment', component: AppointmentComponent}
+      {path: 'registration_medical_appointment', component: AppointmentComponent},
+      {path: 'registration_medical_appointment/:id', component: AppointmentComponent}
     ],
   },
   {path: 'logout', redirectTo: 'login'},

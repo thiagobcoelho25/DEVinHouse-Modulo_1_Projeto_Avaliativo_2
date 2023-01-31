@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { BackendService } from 'src/app/services/backend.service';
@@ -9,7 +9,7 @@ import { Pacientes } from 'src/app/shared/interfaces/paciente';
   templateUrl: './filter-search-bar-responsive.component.html',
   styleUrls: ['./filter-search-bar-responsive.component.scss']
 })
-export class FilterSearchBarResponsiveComponent {
+export class FilterSearchBarResponsiveComponent implements OnChanges{
   
   lista_pacientes: Pacientes[] = []
   lista_pacientes_filtrada: Pacientes[] = []
@@ -29,9 +29,12 @@ export class FilterSearchBarResponsiveComponent {
       
     },})
 
-    this.input_search = new FormControl('');
+    this.input_search = new FormControl({disabled: this.is_disabled, value: ""});
   }
-
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    changes['is_disabled'].currentValue === true ? this.input_search.disable() : this.input_search.enable()
+  }
 
   filtrar_lista_pacientes(){
     const term = this.input_search.value ?  this.input_search.value : ""
@@ -40,8 +43,7 @@ export class FilterSearchBarResponsiveComponent {
 
 
   user_selected(valor: MatAutocompleteSelectedEvent){
-    const id = valor.option.value
-    const paciente: Pacientes = this.lista_pacientes.find(ele => ele.id = id)!
+    const paciente = valor.option.value
     this.emitir_paciente_selecionado.emit(paciente)
   }
 

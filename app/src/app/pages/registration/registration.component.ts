@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params} from '@angular/router';
 import { delay } from 'rxjs';
 import { BackendService } from 'src/app/services/backend.service';
 import { ViaApiService } from 'src/app/services/via-api.service';
@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
   frase_apos_submit: string | null = null
   carregando_form: boolean = false
 
-  constructor(private via_api_service: ViaApiService, private activatedRoute: ActivatedRoute, private router: Router, private api_backend: BackendService) {
+  constructor(private via_api_service: ViaApiService, private activatedRoute: ActivatedRoute, private api_backend: BackendService) {
 
   }
 
