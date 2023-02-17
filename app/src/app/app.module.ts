@@ -3,14 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,15 +17,17 @@ import { CalcularAnosPorDataPipe } from './shared/pipes/calcular-anos-por-data.p
 import { MascaraCpfPipe } from './shared/pipes/mascara-cpf.pipe';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { MedicalRecordComponent } from './pages/medical-record/medical-record.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
+
 import { LayoutContainerComponent } from './pages/layout-container/layout-container.component';
-import { AuthInterceptor } from './security/auth-interceptor';
+
 import { AuthGuard } from './security/auth.guard';
-import { ModalCreateAccountComponent } from './pages/login-page/modal-create-account/modal-create-account.component';
+
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { FilterSearchBarResponsiveComponent } from './components/filter-search-bar-responsive/filter-search-bar-responsive.component';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ExamComponent } from './pages/exam/exam.component';
+import { LoginPageModule } from './pages/login-page/login-page.module';
+import { CustomMaterialModule } from './shared/custom-material/custom-material.module';
 
 @NgModule({
   declarations: [
@@ -47,9 +42,9 @@ import { ExamComponent } from './pages/exam/exam.component';
     MascaraCpfPipe,
     LoadingModalComponent,
     MedicalRecordComponent,
-    LoginPageComponent,
+
     LayoutContainerComponent,
-    ModalCreateAccountComponent,
+    
     AppointmentComponent,
     FilterSearchBarResponsiveComponent,
     ExamComponent,
@@ -59,16 +54,11 @@ import { ExamComponent } from './pages/exam/exam.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule
+    LoginPageModule,
+
+    
+    CustomMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthGuard,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}

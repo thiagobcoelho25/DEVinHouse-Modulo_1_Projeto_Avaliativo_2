@@ -11,7 +11,6 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { AuthGuard } from './security/auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginPageComponent },
   {
     path: '', component: LayoutContainerComponent, canActivate: [AuthGuard], children: [
       { path: '', component: HomeComponent },
