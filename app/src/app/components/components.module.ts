@@ -8,6 +8,7 @@ import { MenuLeftBarComponent } from './menu-left-bar/menu-left-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CustomMaterialModule } from '../shared/custom-material/custom-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CustomMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     FilterSearchBarComponent,
